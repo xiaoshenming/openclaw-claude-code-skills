@@ -167,13 +167,16 @@ See `references/troubleshooting.md` for common issues and solutions.
 
 ## Auto-Notify on Completion
 
-For background tasks, append notification:
+For background tasks, use completion notification:
 
 ```bash
-exec pty:true background:true workdir:/path command:"claude -p 'Your task here.
+# At the end of your prompt, add:
+exec pty:true background:true workdir:/home/ming/data/Project/AIcode/your-project command:"claude -p 'Your task here.
 
-When completely finished, run: openclaw system event --text \"Done: [summary]\" --mode now' --dangerously-skip-permissions"
+When done, output a summary with the project name and what was changed.' --dangerously-skip-permissions"
 ```
+
+**重要：** 通知会显示 `workdir` 路径，所以务必设置正确的项目路径，不要在 skills 目录运行开发任务。
 
 ## Rules
 
