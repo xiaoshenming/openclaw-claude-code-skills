@@ -181,7 +181,11 @@ When completely finished, run: openclaw system event --text \"Done: [summary]\" 
 2. **Use `-p` for one-shot tasks** — cleaner, exits when done
 3. **Use `pty:true` for interactive sessions** — Claude Code needs a terminal
 4. **Set `workdir` to the project directory** — don't run from workspace root
-5. **Default project path: `/home/ming/data/Project/`** — user's project root
-6. **Monitor background tasks** — use `process action:log` to check progress
-7. **Never run in `~/.openclaw/`** — keep workspace clean
-8. **Use proxy if network issues** — see TOOLS.md for proxy config
+5. **Default dev path: `/home/ming/data/Project/AIcode/`** — AI 开发项目默认放这里
+6. **Project root: `/home/ming/data/Project/`** — 项目总路径
+7. **Monitor background tasks** — use `process action:log` to check progress
+8. **Never run in `~/.openclaw/`** — keep workspace clean
+9. **Use proxy if network issues** — `http://127.0.0.1:7897`
+10. **长提示用文件传入** — `cat prompt.md | claude -p "..." ` 比直接 `-p` 传长字符串更稳定
+11. **生成项目后检查 .gitignore** — 确保 node_modules/dist 等不被提交
+12. **后台进程用 nohup** — `nohup cmd > /dev/null 2>&1 &` 而非单纯 `&`
